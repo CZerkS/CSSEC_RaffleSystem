@@ -25,6 +25,13 @@ namespace Raffle_System
         System.Media.SoundPlayer player;// Music
         private void btnRaffleStart_Click(object sender, EventArgs e)
         {
+            //Music plays
+            player = new System.Media.SoundPlayer("gg1.wav");
+            player.Play();
+            timeRandom.Start();
+            btnRaffleStart.Enabled = false;
+
+            /*
             if (running == false)
             {
                 //Music plays
@@ -45,6 +52,7 @@ namespace Raffle_System
                 btnRaffleStart.Text = "Start";
                 data.RemoveAt(index);
             }
+            */
         }
 
         private void RaffleGuestForm_Load(object sender, EventArgs e)
@@ -59,8 +67,25 @@ namespace Raffle_System
         {
             rand = new Random();
             index = rand.Next(data.Count);
-            var num = data[index][1] + ", " + data[index][1];
+            var num = data[index][2] + ", " + data[index][1];
+
             lblRandomGuest.Text = num;
+            pbRandomGuest.Increment(1);
+
+            if (pbRandomGuest.Value == 40)
+            {
+                //Stop the Music
+                player.Stop();
+                //Placing the complete name
+                var completeName = data[index][2] + ", " + data[index][1];
+                lblRandomGuest.Text = completeName;
+                //Stop the Timer
+                timeRandom.Stop();
+                //Enabling Buttons
+                btnRaffleStart.Enabled = true;
+                //Resetting the value to zero to restart
+                pbRandomGuest.Value = 0;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

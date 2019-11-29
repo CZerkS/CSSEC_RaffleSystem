@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace Raffle_System
 {
@@ -36,10 +37,29 @@ namespace Raffle_System
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //Preparing for Randoming
             rand = new Random();
             index = rand.Next(data.Count);
             var num = data[index][0];
+
+            //Changing the Text
             lblRandom.Text = num;
+            pbRandom.Increment(1);
+
+            if (pbRandom.Value == 40)
+            {
+                //Stop the Music
+                player.Stop();
+                //Placing the complete name
+                var completeName = data[index][2] + ", " + data[index][1];
+                lblRandName.Text = completeName;
+                //Stop the Timer
+                timeRandom.Stop();
+                //Enabling Buttons
+                btnRaffleStart.Enabled = true;
+                //Resetting the value to zero to restart
+                pbRandom.Value = 0;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,19 +72,20 @@ namespace Raffle_System
         {
 
         }
-
+    
         private void btnRaffleStart_Click(object sender, EventArgs e)
         {
-            Random rand = new Random();
+            //Music plays
+            player = new System.Media.SoundPlayer("gg1.wav");
+            player.Play();
+
+            timeRandom.Start();
+            btnRaffleStart.Enabled = false;
+
+            /*
             if (running == false)
             {
-                //Music plays
-                player = new System.Media.SoundPlayer("gg1.wav");
-                player.Play();
-
-                timeRandom.Start();
                 running = true;
-                btnRaffleStart.Text = "Stop";
             }
             else if (running == true)
             {
@@ -76,6 +97,7 @@ namespace Raffle_System
                 btnRaffleStart.Text = "Start";
                 data.RemoveAt(index);
             }
+            */
         }
 
         private void btnBack_Click(object sender, EventArgs e)

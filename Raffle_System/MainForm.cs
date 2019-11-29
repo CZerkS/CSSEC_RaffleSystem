@@ -81,7 +81,7 @@ namespace Raffle_System
                 }
                 else
                 {
-                    MessageBox.Show("No Guest/s participated", "NO Guest");
+                    MessageBox.Show("No Guest/s participated", "NO GUEST");
                 }
             }
             else
