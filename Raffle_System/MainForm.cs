@@ -47,11 +47,18 @@ namespace Raffle_System
         {
             if(cmbEvents.Text != "")
             {
-                RaffleAddu rsInitialize = new RaffleAddu();
-                rsInitialize.eventRow = new List<string>() {eventData[eid][0], eventData[eid][1],
-                eventData[eid][2], eventData[eid][3], eventData[eid][4], eventData[eid][5]};
-                rsInitialize.Show();
-                this.Hide();
+                if(connect.HasAdduPopulation(eventData[eid][4].ToString()))
+                {
+                    RaffleAddu rsInitialize = new RaffleAddu();
+                    rsInitialize.eventRow = new List<string>() {eventData[eid][0], eventData[eid][1],
+                    eventData[eid][2], eventData[eid][3], eventData[eid][4], eventData[eid][5]};
+                    rsInitialize.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("No AdDU student/s participated", "NO PARTICIPANTS");
+                }
             }
             else
             {
@@ -64,11 +71,18 @@ namespace Raffle_System
         {
             if (cmbEvents.Text != "")
             {
-                RaffleGuestForm rgfInitialize = new RaffleGuestForm();
-                rgfInitialize.eventRow = new List<string>() {eventData[eid][0], eventData[eid][1],
-                eventData[eid][2], eventData[eid][3], eventData[eid][4], eventData[eid][5]};
-                rgfInitialize.Show();
-                this.Hide();
+                if (connect.HasAdduPopulation(eventData[eid][4].ToString()))
+                {
+                    RaffleGuestForm rgfInitialize = new RaffleGuestForm();
+                    rgfInitialize.eventRow = new List<string>() {eventData[eid][0], eventData[eid][1],
+                    eventData[eid][2], eventData[eid][3], eventData[eid][4], eventData[eid][5]};
+                    rgfInitialize.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("No Guest/s participated", "NO Guest");
+                }
             }
             else
             {

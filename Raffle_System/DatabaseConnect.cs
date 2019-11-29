@@ -61,10 +61,11 @@ public class DatabaseConnect
         }
     }
 
+    List<List<string>> attendanceTableData;
     public List<List<string>> AdduAttendanceData(string adduTable)
     {
         //Temporary will change the table name into variable for flexibility
-        List<List<string>> attendanceTableData = new List<List<string>>();
+        attendanceTableData = new List<List<string>>();
         List<string> row;
         
         if (this.OpenConnection() == true)
@@ -92,12 +93,36 @@ public class DatabaseConnect
         {
             return attendanceTableData;
         }
- 
     }
 
+    public bool HasAdduPopulation(string adduTable)
+    {
+        string query = "SELECT StudentID, Firstname, Lastname FROM test." + adduTable;
+        if (this.OpenConnection() == true)
+        {
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                return true;
+            }
+
+            dataReader.Close();
+            this.CloseConnection();
+
+        }
+        else
+        {
+            MessageBox.Show("No Connection available", "NO CONNECTION");
+        }
+        return false;
+    }
+
+    List<List<string>> guestAttendanceTable;
     public List<List<string>> GuestAttendanceData(string guestTable)
     {
-        List<List<string>> guestAttendanceTable = new List<List<string>>();
+        guestAttendanceTable = new List<List<string>>();
         List<string> row;
 
         if (this.OpenConnection() == true)
@@ -125,6 +150,29 @@ public class DatabaseConnect
         {
             return guestAttendanceTable;
         }
+    }
+
+    public bool HasGuestPopulation(string guestTable)
+    {
+        string query = "SELECT guests.guestcode, lastname, firstname, school, timein FROM " + guestTable + " LEFT JOIN guests ON " + guestTable + ".guestcode = guests.guestcode ORDER BY timein";
+        if (this.OpenConnection() == true)
+        {
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                return true;
+            }
+
+            dataReader.Close();
+            this.CloseConnection();
+        }
+        else
+        {
+            MessageBox.Show("No Connection available", "NO CONNECTION");
+        }
+        return false;
     }
 
     public List<List<string>> EventData()
