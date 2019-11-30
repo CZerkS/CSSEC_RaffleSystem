@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 public class DatabaseConnect
 {
     private MySqlConnection connection;
-    private string server, database, userId, password, strConnection;
+    private string server, port, database, userId, password, strConnection;
 
     public DatabaseConnect()
     {
@@ -16,11 +16,12 @@ public class DatabaseConnect
     public void Initialize()
     {
         server = "localhost";
+        port = "3307";
         database = "test";
         userId = "root";
         password = "";
 
-        strConnection = "SERVER=" + server + ";DATABASE=" + database + ";UID=" + userId + ";PASSWORD=" + password + ";";
+        strConnection = "SERVER=" + server + ";PORT=" + port + ";DATABASE=" + database + ";UID=" + userId + ";PASSWORD=" + password + ";";
 
         connection = new MySqlConnection(strConnection);
     }

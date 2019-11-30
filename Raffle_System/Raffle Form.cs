@@ -25,13 +25,8 @@ namespace Raffle_System
         public RaffleAddu()
         {
             InitializeComponent();
-            panel1.BackColor = Color.FromArgb(200, panel1.BackColor);
-        }
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            lblRandom.BackColor = Color.FromArgb(150, lblRandom.BackColor);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -40,17 +35,13 @@ namespace Raffle_System
             index = rand.Next(data.Count);
             var num = data[index][0];
             lblRandom.Text = num;
+            lblRandName.Text = data[index][2] + ", " + data[index][1];
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             connect = new DatabaseConnect();
             data = connect.AdduAttendanceData(eventRow[4].ToString());
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnRaffleStart_Click(object sender, EventArgs e)
@@ -62,9 +53,11 @@ namespace Raffle_System
                 player = new System.Media.SoundPlayer("gg1.wav");
                 player.Play();
 
+                timeRandom.Interval = 200;
                 timeRandom.Start();
                 running = true;
-                btnRaffleStart.Text = "Stop";
+                btnRaffleStart.BackColor = Color.FromArgb(226, 67, 83);
+                btnRaffleStart.Text = "STOP";
             }
             else if (running == true)
             {
@@ -73,7 +66,8 @@ namespace Raffle_System
                 lblRandName.Text = completeName;
                 timeRandom.Stop();
                 running = false;
-                btnRaffleStart.Text = "Start";
+                btnRaffleStart.BackColor = Color.FromArgb(36, 116, 116);
+                btnRaffleStart.Text = "GO";
                 data.RemoveAt(index);
             }
         }
@@ -83,6 +77,11 @@ namespace Raffle_System
             MainForm mfInitialize = new MainForm();
             mfInitialize.Show();
             this.Close();
+        }
+
+        private void splitContainer5_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

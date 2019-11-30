@@ -30,150 +30,161 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RaffleGuestForm));
-            this.lblRandomGuest = new System.Windows.Forms.Label();
-            this.btnRaffleStart = new System.Windows.Forms.Button();
             this.timeRandom = new System.Windows.Forms.Timer(this.components);
-            this.MainContainer = new System.Windows.Forms.SplitContainer();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.MainContainer)).BeginInit();
-            this.MainContainer.Panel1.SuspendLayout();
-            this.MainContainer.Panel2.SuspendLayout();
-            this.MainContainer.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.pnlMain = new System.Windows.Forms.SplitContainer();
+            this.pnlTop = new System.Windows.Forms.TableLayoutPanel();
+            this.lblRandomGuest = new System.Windows.Forms.Label();
+            this.pnlBottom = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRaffleStart = new RoundButton();
+            this.btnBack = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).BeginInit();
+            this.pnlMain.Panel1.SuspendLayout();
+            this.pnlMain.Panel2.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlTop.SuspendLayout();
+            this.pnlBottom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblRandomGuest
-            // 
-            this.lblRandomGuest.BackColor = System.Drawing.Color.Transparent;
-            this.lblRandomGuest.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblRandomGuest.Font = new System.Drawing.Font("Herald Typeface", 79.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRandomGuest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.lblRandomGuest.Location = new System.Drawing.Point(0, 54);
-            this.lblRandomGuest.Name = "lblRandomGuest";
-            this.lblRandomGuest.Size = new System.Drawing.Size(1482, 307);
-            this.lblRandomGuest.TabIndex = 0;
-            this.lblRandomGuest.Text = "-";
-            this.lblRandomGuest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnRaffleStart
-            // 
-            this.btnRaffleStart.BackColor = System.Drawing.Color.White;
-            this.btnRaffleStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnRaffleStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRaffleStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRaffleStart.Font = new System.Drawing.Font("Herald Typeface", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRaffleStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.btnRaffleStart.Location = new System.Drawing.Point(3, 2);
-            this.btnRaffleStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRaffleStart.Name = "btnRaffleStart";
-            this.btnRaffleStart.Size = new System.Drawing.Size(605, 74);
-            this.btnRaffleStart.TabIndex = 1;
-            this.btnRaffleStart.Text = "START";
-            this.btnRaffleStart.UseVisualStyleBackColor = false;
-            this.btnRaffleStart.Click += new System.EventHandler(this.btnRaffleStart_Click);
             // 
             // timeRandom
             // 
             this.timeRandom.Tick += new System.EventHandler(this.timeRandom_Tick);
             // 
-            // MainContainer
+            // pnlMain
             // 
-            this.MainContainer.BackColor = System.Drawing.Color.Transparent;
-            this.MainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContainer.Location = new System.Drawing.Point(0, 0);
-            this.MainContainer.Name = "MainContainer";
-            this.MainContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.pnlMain.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMain.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.IsSplitterFixed = true;
+            this.pnlMain.Location = new System.Drawing.Point(10, 10);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(10);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // MainContainer.Panel1
+            // pnlMain.Panel1
             // 
-            this.MainContainer.Panel1.Controls.Add(this.btnBack);
-            this.MainContainer.Panel1.Controls.Add(this.lblRandomGuest);
-            this.MainContainer.Panel1MinSize = 50;
+            this.pnlMain.Panel1.Controls.Add(this.pnlTop);
             // 
-            // MainContainer.Panel2
+            // pnlMain.Panel2
             // 
-            this.MainContainer.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.MainContainer.Size = new System.Drawing.Size(1482, 683);
-            this.MainContainer.SplitterDistance = 361;
-            this.MainContainer.TabIndex = 5;
+            this.pnlMain.Panel2.Controls.Add(this.pnlBottom);
+            this.pnlMain.Size = new System.Drawing.Size(1884, 1021);
+            this.pnlMain.SplitterDistance = 696;
+            this.pnlMain.TabIndex = 0;
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.CausesValidation = false;
+            this.pnlTop.ColumnCount = 3;
+            this.pnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.pnlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlTop.Controls.Add(this.lblRandomGuest, 0, 1);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTop.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.RowCount = 3;
+            this.pnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.pnlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.pnlTop.Size = new System.Drawing.Size(1884, 696);
+            this.pnlTop.TabIndex = 0;
+            // 
+            // lblRandomGuest
+            // 
+            this.pnlTop.SetColumnSpan(this.lblRandomGuest, 3);
+            this.lblRandomGuest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblRandomGuest.Font = new System.Drawing.Font("Herald Typeface", 98F);
+            this.lblRandomGuest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(15)))), ((int)(((byte)(35)))));
+            this.lblRandomGuest.Location = new System.Drawing.Point(3, 139);
+            this.lblRandomGuest.Name = "lblRandomGuest";
+            this.lblRandomGuest.Size = new System.Drawing.Size(1878, 417);
+            this.lblRandomGuest.TabIndex = 0;
+            this.lblRandomGuest.Text = "WINNER";
+            this.lblRandomGuest.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlBottom
+            // 
+            this.pnlBottom.ColumnCount = 3;
+            this.pnlBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.pnlBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.pnlBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.5F));
+            this.pnlBottom.Controls.Add(this.btnRaffleStart, 1, 0);
+            this.pnlBottom.Controls.Add(this.btnBack, 0, 0);
+            this.pnlBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBottom.Location = new System.Drawing.Point(0, 0);
+            this.pnlBottom.Name = "pnlBottom";
+            this.pnlBottom.RowCount = 1;
+            this.pnlBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnlBottom.Size = new System.Drawing.Size(1884, 321);
+            this.pnlBottom.TabIndex = 0;
+            // 
+            // btnRaffleStart
+            // 
+            this.btnRaffleStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(116)))), ((int)(((byte)(116)))));
+            this.btnRaffleStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRaffleStart.Font = new System.Drawing.Font("Herald Typeface", 72F);
+            this.btnRaffleStart.ForeColor = System.Drawing.Color.White;
+            this.btnRaffleStart.Location = new System.Drawing.Point(803, 3);
+            this.btnRaffleStart.Name = "btnRaffleStart";
+            this.btnRaffleStart.Size = new System.Drawing.Size(276, 315);
+            this.btnRaffleStart.TabIndex = 0;
+            this.btnRaffleStart.Text = "GO";
+            this.btnRaffleStart.UseVisualStyleBackColor = false;
+            this.btnRaffleStart.Click += new System.EventHandler(this.btnRaffleStart_Click);
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.Font = new System.Drawing.Font("Herald Typeface", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.AutoSize = true;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 64F);
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(67)))), ((int)(((byte)(83)))));
+            this.btnBack.Location = new System.Drawing.Point(3, 224);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(117, 54);
+            this.btnBack.Size = new System.Drawing.Size(794, 97);
             this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Text = "◄";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.16667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.16667F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1482, 318);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnRaffleStart, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(435, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(611, 312);
-            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // RaffleGuestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1482, 683);
-            this.Controls.Add(this.MainContainer);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.pnlMain);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RaffleGuestForm";
-            this.Text = "RaffleGuestForm";
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "";
+            this.Text = "AdDU Raffle";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RaffleGuestForm_Load);
-            this.MainContainer.Panel1.ResumeLayout(false);
-            this.MainContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MainContainer)).EndInit();
-            this.MainContainer.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.pnlMain.Panel1.ResumeLayout(false);
+            this.pnlMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlMain)).EndInit();
+            this.pnlMain.ResumeLayout(false);
+            this.pnlTop.ResumeLayout(false);
+            this.pnlBottom.ResumeLayout(false);
+            this.pnlBottom.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblRandomGuest;
-        private System.Windows.Forms.Button btnRaffleStart;
         private System.Windows.Forms.Timer timeRandom;
-        private System.Windows.Forms.SplitContainer MainContainer;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.SplitContainer pnlMain;
+        private System.Windows.Forms.TableLayoutPanel pnlBottom;
+        private RoundButton btnRaffleStart;
+        private System.Windows.Forms.TableLayoutPanel pnlTop;
+        private System.Windows.Forms.Label lblRandName;
+        private System.Windows.Forms.Label btnBack;
+        private System.Windows.Forms.Label lblRandomGuest;
     }
 }
+

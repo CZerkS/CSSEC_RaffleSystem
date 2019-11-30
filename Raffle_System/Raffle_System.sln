@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raffle_System", "Raffle_System.csproj", "{9F5EAD92-1A40-4A63-BB6A-F752999E237B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C95B8E0-F4A2-4F50-B055-B81D4291ED3B}"
+	ProjectSection(SolutionItems) = preProject
+		RoundButton.cs = RoundButton.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

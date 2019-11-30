@@ -33,7 +33,8 @@ namespace Raffle_System
 
                 timeRandom.Start();
                 running = true;
-                btnRaffleStart.Text = "Stop";
+                btnRaffleStart.BackColor = Color.FromArgb(226, 67, 83);
+                btnRaffleStart.Text = "STOP";
             }
             else if (running == true)
             {
@@ -42,7 +43,8 @@ namespace Raffle_System
                 lblRandomGuest.Text = completeName;
                 timeRandom.Stop();
                 running = false;
-                btnRaffleStart.Text = "Start";
+                btnRaffleStart.BackColor = Color.FromArgb(36, 116, 116);
+                btnRaffleStart.Text = "GO";
                 data.RemoveAt(index);
             }
         }
@@ -59,7 +61,7 @@ namespace Raffle_System
         {
             rand = new Random();
             index = rand.Next(data.Count);
-            var num = data[index][1] + ", " + data[index][1];
+            var num = data[index][2] + ", " + data[index][1];
             lblRandomGuest.Text = num;
         }
 
